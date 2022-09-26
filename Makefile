@@ -13,4 +13,3 @@ check:
 	./iasimage -V
 
 .PHONY: all check install
-

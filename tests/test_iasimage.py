@@ -16,7 +16,7 @@ class MyTests(unittest.TestCase):
 	def tearDown(self):
 
 		shutil.rmtree('extract', ignore_errors=True)
-		files_to_clean = ['cmdline.txt', 'bzImage.bin', 'initrd.bin', 
+		files_to_clean = ['cmdline.txt', 'bzImage.bin', 'initrd.bin',
 		                  'output.bin', 'output.hash', 'output.sig',
 		                  'test_key.pem', 'public_key.pem', 'output.signed.bin']
 		for f in files_to_clean:
@@ -40,7 +40,7 @@ class MyTests(unittest.TestCase):
 			bz_f.write(b'b' * 1024 * 1024 * 2)
 		with open('initrd.bin', 'wb') as initrd_f:
 			initrd_f.write(b'f' * 1024 * 1024 * 3)
-		cmd = [ENV, 'python', IASIMAGE, 'create', '-o', 'output.bin', 
+		cmd = [ENV, 'python', IASIMAGE, 'create', '-o', 'output.bin',
 		       '-i', '0x30000', 'cmdline.txt', 'bzImage.bin', 'initrd.bin']
 		subprocess.check_call(cmd)
 
@@ -56,7 +56,7 @@ class MyTests(unittest.TestCase):
 			cmd_f.write(b'c' * 128)
 		with open('bzImage.bin', 'wb') as bz_f:
 			bz_f.write(b'b' * 1024 * 1024 * 2)
-		cmd = [ENV, 'python', IASIMAGE, 'create', '-o', 'output.bin', 
+		cmd = [ENV, 'python', IASIMAGE, 'create', '-o', 'output.bin',
 		       '-i', '0x30000', 'cmdline.txt', 'bzImage.bin']
 		subprocess.check_call(cmd)
 
@@ -85,4 +85,3 @@ class MyTests(unittest.TestCase):
 
 if __name__ == '__main__':
 	unittest.main()
-
